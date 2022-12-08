@@ -1,43 +1,53 @@
-// var elTItle = document.querySelector(".site-title");
-// var elForm = document.querySelector(".form");
-// var elInput1 = document.querySelector(".form__input");
-// var elInput2 = document.querySelector(".form__input2");
-// var elBtn1 = document.querySelector(".btn1");
-// var elBtn2 = document.querySelector(".btn2");
+var elTItle = document.querySelector(".site-title");
+var elForm = document.querySelector(".form");
+var elInput1 = document.querySelector(".form__input");
+var elInput2 = document.querySelector(".form__input2");
+var elBtn1 = document.querySelector(".btn1");
+var elBtn2 = document.querySelector(".btn2");
+var elSubmit = document.querySelector(".button");
 // var elResult = document.querySelector(".result");
 
-// var array = [
-//   "Bugatti ",
-//   "Corvette ",
-//   "BMW ",
-//   "Lamborghini ",
-//   "Mercedes ",
-//   "Toyota",
-// ];
+var array = [
+  "Bugatti ",
+  "Corvette ",
+  "BMW ",
+  "Lamborghini ",
+  "Mercedes ",
+  "Toyota",
+];
 
-// elForm.addEventListener("submit", function (evt) {
-//   evt.preventDefault();
-//   // var array = [
-//   //   "Bugatti ",
-//   //   "Corvette ",
-//   //   "BMW ",
-//   //   "Lamborghini ",
-//   //   "Mercedes ",
-//   //   "Toyota",
-//   // ];
+elTItle.textContent = array;
 
-//   elBtn1.addEventListener("click", function () {
-//       elInput1Value = +elInput1.value;
-//       elTItle.textContent = array.unshift(elInput1Value);
-//   });
+elForm.addEventListener("submit", function (evt) {
+  evt.preventDefault();
 
-//   elBtn2.addEventListener("click", function () {
-//       elInput2Value = +elInput2.value;
-//       elTItle.textContent = array.push(elInput2Value);
-//   });
-// });
+  var elInput1Val = elInput1.value;
+  var elInput2Val = elInput2.value;
 
-// elTItle.textContent = array;
+  if (elInput1Val != "" && elInput2Val != "") {
+    array.unshift([elInput1Val]), array.push([elInput2Val]);
+    elTItle.textContent = array;
+  } else if (elInput2Val == "" && elInput1Val != "") {
+    array.unshift(elInput1Val)
+    elTItle.textContent = array;
+    return;
+  } else if (elInput1Val == "" && elInput2Val != "") {
+    array.push(elInput2Val)
+    elTItle.textContent = array;
+  } else {
+    elTItle.textContent = array;
+  }
+});
+
+elBtn1.addEventListener("click", function () {
+  array.shift();
+  elTItle.textContent = array;
+});
+
+elBtn2.addEventListener("click", function () {
+  array.pop();
+  elTItle.textContent = array;
+});
 
 // var userNumber = +prompt("Son kiriting");
 // var i = 0;
@@ -45,11 +55,6 @@
 // for (i;i <= userNumber; i += 2) {
 //   console.log(i);
 // }
-
-
-
-
-
 
 // ------------------------------UY SIHI---------------------
 
@@ -109,7 +114,6 @@
 // }
 
 // ---------------------------7-MASALA-----------------------
-
 
 // ---------------------------8-MASALA-----------------------
 
